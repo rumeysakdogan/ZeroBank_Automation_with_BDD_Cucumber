@@ -8,7 +8,7 @@
     <artifactId>ZeroBank_Automation_with_BDD_Cucumber</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--to set java version as 8. BY default it is always 5    -->
+
     <build>
         <plugins>
             <plugin>
@@ -20,7 +20,7 @@
                         <include>**/*Runner*.java</include>
                         <!--<include>**/*ParallelRunner*.java</include>-->
                     </includes>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>false</testFailureIgnore>
                     <runOrder>alphabetical</runOrder>
                     <parallel>methods</parallel>
                     <threadCount>3</threadCount>
@@ -51,6 +51,7 @@
                 </executions>
             </plugin>
 
+            <!--to set java version as 8. BY default it is always 5-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
