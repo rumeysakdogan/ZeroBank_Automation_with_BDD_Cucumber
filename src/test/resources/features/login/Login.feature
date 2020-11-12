@@ -1,26 +1,19 @@
-@login
-Feature: Login
+Feature: Login feature
 
-  As a user, I should be able to login to zero bank successfully.
+  @Login
+  Scenario: Login(happy path)
+    Given user is on a landing "page_url"
+    When user login with "username" and "password"
+    Then user should see home page
 
-  Background: common steps
-    Given user on Zero bank home page
-    When user clicks on signin button
-
-
-  Scenario: Login with valid credentials
-    And user logs in with "username" and "password"
-    Then Account summary page should be displayed
-
-
-  @negative_login
-  Scenario Outline: Login with invalid credentials, username: <username>  password: <password>
-    When user logs in with invalid "<username>" or "<password>"
-    Then error message "Login and/or password are wrong." should be displayed
-
-    Examples:
-      | username | password |
-      | wrong    | password |
-      | username | wrong    |
-      |          | password |
-      | username |          |
+  @Login
+  Scenario Outline: Login(negative)
+    Given user is on a landing "page_url"
+    When user login with "<username>" and "<password>"
+    Then user should see error "Login and/or password are wrong."
+    Examples: Wrong credentials
+      | username       | password       |
+      |                | password       |
+      | username       |                |
+      | wrong username | password       |
+      | username       | wrong password |

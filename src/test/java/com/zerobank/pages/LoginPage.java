@@ -1,26 +1,38 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.ConfigurationReader;
+import com.zerobank.utilities.Driver;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage{
+import java.awt.event.KeyEvent;
+
+public class LoginPage {
+    public LoginPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
 
     @FindBy(id = "user_login")
-    private WebElement usernameInputBox;
-
+    private WebElement usernameField;
     @FindBy(id = "user_password")
-    private WebElement passwordInputBox;
-
+    private WebElement passwordField;
     @FindBy(xpath = "//div[@class='alert alert-error']")
     private WebElement errorMessage;
 
-    public void login(String username, String password){
-        usernameInputBox.sendKeys(username);
-        passwordInputBox.sendKeys(password + Keys.ENTER);
+    public void login(String username, String password) {
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password, Keys.ENTER);
     }
 
-    public WebElement getErrorMessage(){
-        return errorMessage;
+    public String getErrorMessageText() {
+        return errorMessage.getText();
     }
+
+    public void landingPage(String url) {
+        Driver.getDriver().get(ConfigurationReader.getProperty(url));
+    }
+
 }

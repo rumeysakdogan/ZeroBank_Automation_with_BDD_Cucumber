@@ -1,15 +1,11 @@
 package com.zerobank.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.zerobank.utilities.Driver;
+import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BasePage{
-
-    @FindBy(id = "signin_button")
-    private WebElement signInButton;
-
-    public void clickOnSignInButton(){
-        signInButton.click();
+public class HomePage {
+    public HomePage(){
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
 }
