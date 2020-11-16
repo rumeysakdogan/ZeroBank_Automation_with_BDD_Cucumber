@@ -1,6 +1,7 @@
 package com.zerobank.step_definitions;
 
 import com.zerobank.pages.OnlineStatementsPage;
+import com.zerobank.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,20 +28,24 @@ public class OnlineStatementsStepDefinitions {
         Assert.assertEquals("Wrong number of statements", count, actual);
     }
 
-    @Given("the user accesses the Statements & Documents tab")
-    public void theUserAccessesTheStatementsDocumentsTab() {
-    }
+
 
     @When("the user clicks on statement {string}")
-    public void theUserClicksOnStatement(String arg0) {
+    public void theUserClicksOnStatement(String statementName) {
+onlineStatementsPage.clickingOnStatement(statementName);
+        BrowserUtils.wait(2);
+
     }
 
     @Then("the downloaded file name should contain {string}")
-    public void theDownloadedFileNameShouldContain(String arg0) {
+    public void theDownloadedFileNameShouldContain(String statementName) {
+        Assert.assertTrue(onlineStatementsPage.downloadedFileName().contains(statementName));
     }
 
 
     @And("the file type should be pdf")
     public void theFileTypeShouldBePdf() {
+        Assert.assertTrue(onlineStatementsPage.downloadedFileName().contains("pdf"));
+        onlineStatementsPage.deleteStatement();
     }
 }
