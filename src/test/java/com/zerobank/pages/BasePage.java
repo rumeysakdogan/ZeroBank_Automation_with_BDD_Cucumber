@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ public abstract class BasePage {
 
     public void navigateTo(String tab) {
         WebElement mainPageTabs = Driver.getDriver().findElement(By.xpath("//a[text()=\"" + tab + "\"]"));
+        BrowserUtils.waitForClickability(mainPageTabs, 5);
         mainPageTabs.click();
     }
 

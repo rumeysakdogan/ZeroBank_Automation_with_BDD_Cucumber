@@ -20,7 +20,7 @@ Feature: Statements and Documents details
 
 
   Scenario Outline: Download statements
-    Given the user accesses the Statements & Documents tab
+    Given the user accesses the "Online Statements" tab
     And the user selects the Recent Statements Year <year>
     When the user clicks on statement "<statement>"
     Then the downloaded file name should contain "<name>"
