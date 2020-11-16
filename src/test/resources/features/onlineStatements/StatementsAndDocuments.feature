@@ -1,9 +1,15 @@
 Feature: Statements and Documents details
 
+  Background:
+    Given user is on a landing "page_url"
+    When user login with "username" and "password"
+
+  @stat
   Scenario Outline: Recent statements per year
-    Given the user accesses the Statements & Documents tab
+    Given the user accesses the "Online Statements" tab
     When the user selects the Recent Statements Year <year>
-    Then <count> statements should be displayed for that year
+    Then <count> statements should be displayed for that <year>
+
 
     Examples:
       | year | count |
