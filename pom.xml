@@ -20,7 +20,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <includes>
-                        <include>**/*Runner*.java</include>
+                        <include>**/CukesRunner.java</include>
                         <!--<include>**/*ParallelRunner*.java</include>-->
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
@@ -47,7 +47,7 @@
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
-                                <param>**/cucumber*.json</param>
+                                <param>**/cucumber.json</param>
                             </jsonFiles>
                         </configuration>
                     </execution>
