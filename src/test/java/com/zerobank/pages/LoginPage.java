@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.awt.event.KeyEvent;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
