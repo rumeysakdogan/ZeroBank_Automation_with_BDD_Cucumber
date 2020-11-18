@@ -13,6 +13,7 @@ public class OnlineStatementsStepDefinitions {
 
     @Given("the user accesses the {string} tab")
     public void the_user_accesses_the_tab(String tab) {
+        BrowserUtils.wait(10);
         onlineStatementsPage.navigateTo(tab);
 
     }
