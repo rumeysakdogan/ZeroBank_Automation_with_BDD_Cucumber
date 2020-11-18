@@ -7,7 +7,7 @@ Feature: Purchase Foreign Currency
     Then user login with "username" and "password"
     And the user accesses the Purchase foreign currency cash tab
 
-    @currency
+  @currency
   Scenario: Available currencies
 
     Then following currencies should be available
@@ -27,12 +27,12 @@ Feature: Purchase Foreign Currency
       | Singapore (dollar)    |
       | Thailand (baht)       |
 
- @msg_1
+  @msg_2
   Scenario: Error message for not selecting currency
     When user tries to calculate cost without selecting a currency
     Then error message should be displayed
 
-@msg_2
+  @msg_1
   Scenario: Error message for not entering value
 
     When user tries to calculate cost without entering a value

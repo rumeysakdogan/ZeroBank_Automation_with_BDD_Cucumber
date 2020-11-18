@@ -213,7 +213,9 @@ public class BrowserUtils {
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
     }
-
+    public static void waitElementToBeClickableAndClick(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
 
     /**
      * Scrolls down to an element using JavaScript

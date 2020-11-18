@@ -29,7 +29,7 @@ public class AccountActivityNavigationStepDefinitions {
 
     @Then("the {string} page should be displayed")
     public void the_page_should_be_displayed(String expectedInTitle) {
-        Assert.assertTrue(accountActivityPage.getAcountActivityTitle().contains(expectedInTitle));
+        Assert.assertTrue(accountActivityPage.getAccountActivityTitle().contains(expectedInTitle));
     }
 
     @Then("Account drop down should have {string} selected")
