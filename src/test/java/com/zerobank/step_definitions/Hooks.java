@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class Hooks {
 
     @Before
-    public void setup(Scenario scenario){
+    public void setup(Scenario scenario) {
         System.out.println(scenario.getSourceTagNames());
         System.out.println("::: Start of Automation :::");
         Driver.getDriver().manage().window().maximize();
@@ -20,12 +20,12 @@ public class Hooks {
     }
 
     @After
-    public void tearDown(Scenario scenario){
+    public void tearDown(Scenario scenario) {
         //close browser, close DB connection, close tunnel, capture screenshot of the error, etc.
         // this is a hook after
         // run automatically after every test
 
-        if(scenario.isFailed()){
+        if (scenario.isFailed()) {
             byte[] data = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(data, "image/png", scenario.getName());
         }

@@ -4,9 +4,7 @@ import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.io.File;
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class OnlineStatementsPage extends BasePage {
 
     public void selectingStatements(Integer year) {
         WebElement statementYearLink = Driver.getDriver().findElement(By.xpath("//a[@href='#os_" + year + "']"));
-        BrowserUtils.waitForClickability(statementYearLink,5);
+        BrowserUtils.waitForClickability(statementYearLink, 5);
         statementYearLink.click();
     }
 
@@ -48,23 +46,26 @@ public class OnlineStatementsPage extends BasePage {
                 lastModifiedFile = files[i];
             }
         }
-        String fileName=lastModifiedFile.getName();
 
-        System.out.println("Downloaded file name: " + lastModifiedFile.getName());
-        return fileName;
+        return lastModifiedFile.getName();
     }
-    public void deleteStatement(){
+
+    public void deleteStatement() {
         String downloadPath = "C:\\Users\\vpisa\\Downloads";
         File dir = new File(downloadPath);
         File[] files = dir.listFiles();
         assert files != null;
-        File lastModifiedFile = files[0];
-        for (int i = 1; i < files.length; i++) {
-            if (files[i].lastModified() < lastModifiedFile.lastModified()) {
-                lastModifiedFile = files[i];
-            }
-        }
-        lastModifiedFile.delete();
+        files[0].delete();
+
+//        assert files != null;
+//        System.out.println(files.length);
+//        File lastModifiedFile = files[0];
+//        for (int i = 1; i < files.length; i++) {
+//            if (files[i].lastModified() < lastModifiedFile.lastModified()) {
+//                lastModifiedFile = files[i];
+//            }
+//        }
+//        lastModifiedFile.delete();
     }
 
 
